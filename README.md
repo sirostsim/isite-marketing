@@ -5,19 +5,34 @@ induction and attendance platform. Served at **https://isite.srscloud.co.uk**.
 The application itself lives one hop away at **https://app.isite.srscloud.co.uk**.
 
 This is a **static site** — plain HTML, CSS and a little vanilla JavaScript, with
-no build step. Hosted on **Cloudflare Pages**.
+no build step. Currently served by **GitHub Pages** — see "Hosting" below
+before changing anything that depends on response headers.
 
 ## Structure
 
 ```
 index.html      One-page landing (hero, what it is, features, how it works,
                 who it's for, contact)
+pricing.html    Plans and prices. Linked from the main nav.
+privacy.html    Privacy policy. Has placeholders — see below.
 styles.css      All styles. Palette matches the app's neutral iSite theme.
 main.js         Mobile nav, footer year, scroll-reveal. No dependencies.
-assets/logo.svg The iSite logo mark (shared with the app icon).
-_headers        Cloudflare Pages security response headers.
-robots.txt      / sitemap.xml — indexing.
 404.html        Branded not-found page.
+
+favicon.ico     Multi-size tab icon (16/32/48). At the root on purpose, so a
+                bare /favicon.ico request resolves instead of hitting 404.html.
+assets/
+  logo.svg              The iSite logo mark (shared with the app icon).
+  apple-touch-icon.png  180x180 iOS home-screen icon.
+  og-image.png          1200x630 social card. PNG because no social platform
+                        renders an SVG og:image.
+tools/
+  generate-assets.mjs   Regenerates the three raster assets from the logo
+                        shapes. Optional, not part of any build.
+
+_headers        Cloudflare Pages security response headers. Currently inert —
+                see "Hosting" below.
+robots.txt      / sitemap.xml — indexing.
 ```
 
 ## Local preview
@@ -31,6 +46,29 @@ python -m http.server 4321
 ```
 
 Then open the printed URL. Editing a file and refreshing is the whole loop.
+
+## Hosting — read this first
+
+**The live site is served by GitHub Pages, not Cloudflare Pages.** The response
+from `https://isite.srscloud.co.uk` carries `Server: GitHub.com`, and the
+`CNAME` file in this repo is the GitHub Pages convention.
+
+That matters because **GitHub Pages does not read `_headers`**. Every header in
+that file — the CSP, HSTS, `X-Frame-Options`, `X-Content-Type-Options` — is
+currently doing nothing. The file looks like working configuration and is not.
+
+Pick one:
+
+- **Move to Cloudflare Pages** (the steps below) and `_headers` starts working.
+  Check inline `<style>`/`style=` usage first: the CSP is `style-src 'self'`
+  with no `'unsafe-inline'`, so any inline CSS is dropped the moment the
+  headers take effect. There is none right now — keep it that way.
+- **Stay on GitHub Pages** and delete `_headers`, or leave it with a comment
+  saying it is aspirational. GitHub Pages has no mechanism for setting response
+  headers, so HSTS and `frame-ancestors` are simply not available there.
+
+If you do move to Cloudflare Pages, update the hosting provider named in
+`privacy.html` section 5 (it currently says GitHub, Inc.).
 
 ## Deploy — Cloudflare Pages
 
@@ -63,6 +101,45 @@ application.
   neutral (non-tenant) iSite palette so the two properties feel like one brand.
 - Copy is written to match what the application actually does — keep it honest;
   don't add features here that aren't in the product.
-- The contact address is `hello@srscloud.co.uk` in `index.html` (hero/CTA/footer)
-  and `_headers` allows `mailto:` form actions. Change it in one place if the
-  address changes.
+- The contact address is `hello@srscloud.co.uk`, and appears in the CTA and
+  footer of `index.html`, `pricing.html` and `privacy.html`. `_headers` allows
+  `mailto:` form actions. Grep for it if the address changes.
+
+## Before the privacy policy goes live
+
+`privacy.html` is a working draft and **needs a read-through by whoever owns
+compliance.** It names **SRS Support** as the data controller and covers this
+marketing site only — the application at `app.isite.srscloud.co.uk` is
+explicitly out of scope and needs its own notice.
+
+Search the file for `class="placeholder"` and fill in:
+
+| Placeholder | Where |
+| --- | --- |
+| `[COMPANY NUMBER]` | §1 Who we are |
+| `[REGISTERED OFFICE ADDRESS]` | §1 Who we are |
+| `[ICO REGISTRATION NUMBER]` | §1 Who we are |
+| `[EMAIL PROVIDER]` | §5 Who we share it with |
+| `[RETENTION PERIOD]` x3 | §7 How long we keep it |
+
+The placeholders are visually highlighted, so anything missed is obvious on the
+page rather than buried in the source. Also update the "Last updated" date in
+the page hero when you edit it.
+
+## Regenerating the icons and social card
+
+Only needed if the logo or the social-card copy changes:
+
+```bash
+npm install @resvg/resvg-js
+node tools/generate-assets.mjs
+```
+
+Then commit `favicon.ico`, `assets/apple-touch-icon.png` and
+`assets/og-image.png`. `node_modules/` is gitignored; the site itself still has
+no build step and deploys as-is.
+
+The small favicon sizes use simplified marks rather than the full logo — three
+nested levels (tile > pin > disc > "i") turn to mud below about 48px, so 16px
+gets the pin silhouette alone and 32/48px get the pin with a bold "i" knocked
+out of it. That logic lives in `tools/generate-assets.mjs`.
