@@ -106,7 +106,7 @@ application.
   `Cache-Control: max-age=600` and neither filename ever changes, so without a
   bump returning visitors get up to ten minutes of new HTML against old CSS —
   which on the pricing page renders as a completely unstyled mess, not as a
-  minor visual glitch. Currently at `v=2`. One-liner to check they all match:
+  minor visual glitch. Currently at `v=3`. One-liner to check they all match:
 
   ```bash
   grep -h -o 'styles.css?v=[0-9]*|main.js?v=[0-9]*' *.html | sort -u
