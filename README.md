@@ -101,6 +101,16 @@ application.
   neutral (non-tenant) iSite palette so the two properties feel like one brand.
 - Copy is written to match what the application actually does — keep it honest;
   don't add features here that aren't in the product.
+- **After editing `styles.css` or `main.js`, bump the `?v=` number on their
+  `<link>`/`<script>` tags in all four HTML files.** The host serves both with
+  `Cache-Control: max-age=600` and neither filename ever changes, so without a
+  bump returning visitors get up to ten minutes of new HTML against old CSS —
+  which on the pricing page renders as a completely unstyled mess, not as a
+  minor visual glitch. Currently at `v=2`. One-liner to check they all match:
+
+  ```bash
+  grep -h -o 'styles.css?v=[0-9]*|main.js?v=[0-9]*' *.html | sort -u
+  ```
 - The contact address is `hello@srscloud.co.uk`, and appears in the CTA and
   footer of `index.html`, `pricing.html` and `privacy.html`. `_headers` allows
   `mailto:` form actions. Grep for it if the address changes.
