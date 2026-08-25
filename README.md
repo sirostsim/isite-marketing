@@ -126,11 +126,15 @@ Search the file for `class="placeholder"` and fill in:
 
 | Placeholder | Where |
 | --- | --- |
-| `[COMPANY NUMBER]` | §1 Who we are |
-| `[REGISTERED OFFICE ADDRESS]` | §1 Who we are |
 | `[ICO REGISTRATION NUMBER]` | §1 Who we are |
 | `[EMAIL PROVIDER]` | §5 Who we share it with |
 | `[RETENTION PERIOD]` x3 | §7 How long we keep it |
+
+The controller is **SRS Support Limited**, company number **07805852**,
+registered office Woodland View, Heol Llangeinor, Llangeinor, Bridgend,
+CF32 8PW. Those came from Companies House and are already filled in. The ICO
+number is on a separate register (the ICO fee-payers register), not derivable
+from Companies House, so it still needs looking up by hand.
 
 The placeholders are visually highlighted, so anything missed is obvious on the
 page rather than buried in the source. Also update the "Last updated" date in
