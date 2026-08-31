@@ -15,6 +15,8 @@ index.html      One-page landing (hero, what it is, features, how it works,
                 who it's for, contact)
 pricing.html    Plans and prices. Linked from the main nav.
 privacy.html    Privacy policy. Has placeholders — see below.
+ar/index.html   Arabic (RTL) landing page for the Gulf market. Deliberately not
+                a mirror of the English site — see "The Arabic page" below.
 styles.css      All styles. Palette matches the app's neutral iSite theme.
 main.js         Mobile nav, footer year, scroll-reveal. No dependencies.
 404.html        Branded not-found page.
@@ -139,6 +141,43 @@ from Companies House, so it still needs looking up by hand.
 The placeholders are visually highlighted, so anything missed is obvious on the
 page rather than buried in the source. Also update the "Last updated" date in
 the page hero when you edit it.
+
+## The Arabic page
+
+`ar/index.html` is a **standalone landing page, not a translation of the site.**
+It covers hero, what it is, features, how it works and contact. There is no
+Arabic pricing page: the CTA routes to an email enquiry instead, so UAE pricing
+stays flexible and no GBP figure anchors the conversation.
+
+Three things to keep in mind when editing:
+
+- **It will drift from the English page, and that is expected.** They are
+  separate documents with no shared source. If you change a feature claim in
+  `index.html`, decide consciously whether `ar/index.html` needs the same edit.
+- **The UK framing is deliberately absent.** The "Built for UK construction"
+  line and the RAMS reference have no Arabic equivalent here — RAMS is rendered
+  as the region-neutral وثائق تقييم المخاطر. Do not "restore parity" by
+  translating the UK-specific claims back in.
+- **The safety terminology has not been reviewed by a native speaker.** Grammar
+  and register are sound; what needs a second pair of eyes is whether a Dubai
+  site manager actually says التعريف بالسلامة for induction and نداء التجمّع for
+  muster. Get that reviewed before leaning on this page commercially.
+
+### RTL mechanics
+
+The layout mirrors on its own because every directional rule in `styles.css` is
+a logical property (`padding-inline-start`, `inset-inline-start`,
+`border-inline-end`) rather than a physical one. **Keep it that way** — a single
+`padding-left` will put the pricing tick marks on the wrong side of their text
+the moment the page is flipped.
+
+Arabic-specific rules live in the `[dir="rtl"]` block at the end of the
+stylesheet: an Arabic-first font stack, taller line-height, and
+`letter-spacing: normal` because negative tracking damages cursive joins.
+
+The header collapses to the hamburger at **900px**, not 760px. The language
+switcher is what pushed it over — below roughly 900px the brand, six nav items,
+the switcher and two buttons no longer fit on one line.
 
 ## Regenerating the icons and social card
 
