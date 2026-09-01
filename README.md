@@ -117,29 +117,35 @@ application.
   footer of `index.html`, `pricing.html` and `privacy.html`. `_headers` allows
   `mailto:` form actions. Grep for it if the address changes.
 
-## Before the privacy policy goes live
+## The privacy policy
 
-`privacy.html` is a working draft and **needs a read-through by whoever owns
-compliance.** It names **SRS Support** as the data controller and covers this
-marketing site only — the application at `app.isite.srscloud.co.uk` is
-explicitly out of scope and needs its own notice.
-
-Search the file for `class="placeholder"` and fill in:
-
-| Placeholder | Where |
-| --- | --- |
-| `[EMAIL PROVIDER]` | §5 Who we share it with |
-| `[RETENTION PERIOD]` x3 | §7 How long we keep it |
+`privacy.html` covers **this marketing site only**. The application at
+`app.isite.srscloud.co.uk` is explicitly out of scope and still needs its own
+notice — that is a real gap, not an oversight in this file.
 
 The controller is **SRS Support Limited**, company number **07805852**,
 registered office Woodland View, Heol Llangeinor, Llangeinor, Bridgend,
-CF32 8PW, ICO registration ZC230256. All filled in. The company details were
-taken from Companies House; the ICO number was supplied by hand, because that
-register refuses automated lookups and could not be checked programmatically.
+CF32 8PW, ICO registration **ZC230256**. Section 1 therefore also satisfies the
+Companies Act 2006 trading-disclosure rules, which require the registered name,
+number, place of registration and registered office to appear on the company's
+website. Nothing else on the site carries them, so do not delete that block.
 
-The placeholders are visually highlighted, so anything missed is obvious on the
-page rather than buried in the source. Also update the "Last updated" date in
-the page hero when you edit it.
+Provenance, because it matters if anyone challenges it:
+
+- Company name, number and registered office were taken from Companies House
+  and verified against the company profile page.
+- The **ICO number was supplied by hand and has not been independently
+  verified** — ico.org.uk returns 403 to automated requests, on both its search
+  and its direct entry URLs.
+- Cloudflare's analytics retention (7 days unsampled, then aggregated to a ~10%
+  sample) is quoted from Cloudflare's own Web Analytics FAQ.
+- The 90-day enquiry and 6-year post-customer retention periods came from SRS
+  Support. Six years matches the Limitation Act 1980 claim window and HMRC's
+  business-record requirement.
+
+There are **no placeholders left**. If you edit the policy, update the
+"Last updated" date in the page hero and the `lastmod` for `privacy.html` in
+`sitemap.xml`. It has not had a solicitor's review.
 
 ## The Arabic page
 
