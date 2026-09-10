@@ -108,7 +108,7 @@ application.
   `Cache-Control: max-age=600` and neither filename ever changes, so without a
   bump returning visitors get up to ten minutes of new HTML against old CSS —
   which on the pricing page renders as a completely unstyled mess, not as a
-  minor visual glitch. Currently at `v=3`. One-liner to check they all match:
+  minor visual glitch. Currently at `v=5`. One-liner to check they all match:
 
   ```bash
   grep -h -o 'styles.css?v=[0-9]*|main.js?v=[0-9]*' *.html | sort -u
@@ -116,6 +116,23 @@ application.
 - The contact address is `hello@srscloud.co.uk`, and appears in the CTA and
   footer of `index.html`, `pricing.html` and `privacy.html`. `_headers` allows
   `mailto:` form actions. Grep for it if the address changes.
+
+## The CDM module section
+
+The homepage `#cdm` section describes the optional CDM add-on: toolbox
+talks, permits to work and the construction phase plan. Three rules:
+
+- **Describe only what the app does.** The copy was written from the app repo,
+  `hale-site-access` (`src/lib/cdm.ts`, `toolboxTalks.ts`, `permits.ts`, `cpp.ts` and the
+  CDM commits). Check there before adding a claim. In particular, the phase
+  plan is "structured around the CDM 2015 sections", not "CDM-compliant": the
+  app provides the structure and the plan's adequacy stays the duty holder's
+  judgement.
+- **It is English-only on purpose.** CDM 2015 is UK law, so the Arabic page
+  leaves it out, like the other UK-specific claims.
+- **It has no nav link.** The header has no room for another item (see the
+  900px breakpoint note under the Arabic page). It is priced on request, and
+  the pricing page says so in its note.
 
 ## The privacy policy
 

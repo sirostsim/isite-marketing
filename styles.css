@@ -372,3 +372,15 @@ img { max-width: 100%; display: block; }
 .mobile-nav .lang-switch { display: inline-block; width: fit-content; margin-top: .5rem; }
 .footer-nav .lang-switch { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.3); }
 .footer-nav .lang-switch:hover { color: #fff; border-color: #fff; }
+
+/* ------------------------------ CDM module -------------------------------
+   Dark band for the add-on. It sits between Features (grey) and How it works
+   (white), so the page keeps alternating, and it reads as an extension to the
+   core product rather than more of the same. The white feature cards are
+   reused unchanged, which is why the band sets no text colour of its own:
+   the card titles inherit theirs and would turn white on white. */
+.section-dark { background: linear-gradient(160deg, var(--navy-3), var(--navy) 60%, var(--navy-2)); }
+.section-dark h2 { color: #fff; }
+.section-dark .eyebrow { color: var(--cyan); }
+.section-dark .section-sub { color: rgba(255,255,255,.8); }
+.cdm-cta { text-align: center; margin: 2.5rem 0 0; }
