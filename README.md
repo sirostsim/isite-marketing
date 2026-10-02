@@ -201,6 +201,28 @@ The header collapses to the hamburger at **900px**, not 760px. The language
 switcher is what pushed it over — below roughly 900px the brand, six nav items,
 the switcher and two buttons no longer fit on one line.
 
+## The status page
+
+`status.html` reports whether the platform is working. `status.js` asks the
+application at `app.isite.srscloud.co.uk/api/status` and renders generic labels:
+Application, Database, Email delivery, Platform hosting.
+
+- **The hosting and email providers are never named.** They are checked
+  server-side by that endpoint, which returns labels only. Do not add a
+  provider name, address or uptime figure to this page. One of the providers
+  also sends no CORS header, so a browser could not read it directly anyway.
+- **A failed check reports a failure.** If the fetch fails, times out after 8
+  seconds, or returns an unexpected shape, the page says the application is
+  not responding. It never shows a guessed green. A status page that lies is
+  worse than no status page.
+- **Sample data lives behind `?demo=1` only,** for looking at the design. The live
+  page cannot invent a state.
+- **Status colours are not brand colours.** Teal reads as the brand rather
+  than as a signal, so it is not used for "good".
+
+The response shape is a contract with the application. If it changes there,
+the rendering in `status.js` has to change with it.
+
 ## Regenerating the icons and social card
 
 Only needed if the logo or the social-card copy changes:
