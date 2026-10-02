@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System status | iSite</title>
+  <meta name="description" content="Live status of the iSite platform: the application, its database, email delivery and hosting." />
+  <meta name="theme-color" content="#10243D" />
+  <!-- Kept out of search until the status endpoint is live, so an unreachable
+       page is never the first thing a customer finds. Remove with the footer
+       link and the sitemap entry when it goes live. -->
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://isite.srscloud.co.uk/status.html" />
+
+  <link rel="stylesheet" href="/styles.css?v=6" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="iSite home">
+        <img class="brand-mark" src="/assets/logo.svg" width="36" height="36" alt="" />
+        <span class="brand-word">iSite&trade;</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/#what">What it is</a>
+        <a href="/#features">Features</a>
+        <a href="/#how">How it works</a>
+        <a href="/#who">Who it's for</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://app.isite.srscloud.co.uk/login">Log in</a>
+        <a class="btn btn-primary" href="/#contact">Book a demo</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="/#what">What it is</a>
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/#who">Who it's for</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn btn-ghost" href="https://app.isite.srscloud.co.uk/login">Log in</a>
+      <a class="btn btn-primary" href="/#contact">Book a demo</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== Page hero ===================== -->
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="eyebrow">System status</p>
+        <h1>Is iSite&trade; working?</h1>
+        <p class="lead">
+          A live check of the parts of iSite your sites depend on. This page asks the
+          platform directly each time you load it, so it reflects the state right now
+          rather than a figure typed in by hand.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="status-wrap">
+
+          <!-- Overall verdict. aria-live so a screen reader announces the result
+               once the check comes back, since it starts as "Checking". -->
+          <div class="status-banner is-checking" id="status-banner" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-banner-text" id="status-banner-text">Checking the platform&hellip;</span>
+          </div>
+
+          <ul class="status-list" id="status-list">
+            <li class="status-row">
+              <span class="status-dot status-dot--unknown" aria-hidden="true"></span>
+              <span class="status-name">Loading</span>
+              <span class="status-state">Checking</span>
+            </li>
+          </ul>
+
+          <p class="status-checked" id="status-checked"></p>
+
+          <noscript>
+            <p class="status-note">
+              This page needs JavaScript to check the platform. If you cannot use
+              JavaScript, email <a href="mailto:hello@srscloud.co.uk">hello@srscloud.co.uk</a>
+              and we will tell you the current state.
+            </p>
+          </noscript>
+
+          <p class="status-note">
+            These indicators cover the platform as a whole. They cannot tell you about a
+            problem on one site, or about your own internet connection. If something is
+            wrong for you and everything here reads normal, please email
+            <a href="mailto:hello@srscloud.co.uk">hello@srscloud.co.uk</a> and tell us what
+            you were doing at the time.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="iSite home">
+          <img class="brand-mark" src="/assets/logo.svg" width="32" height="32" alt="" />
+          <span class="brand-word">iSite&trade;</span>
+        </a>
+        <p>Site access, induction &amp; attendance for construction.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/#what">What it is</a>
+        <a href="/#features">Features</a>
+        <a href="/#how">How it works</a>
+        <a href="/#who">Who it's for</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="https://app.isite.srscloud.co.uk/login">Log in</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>iSite is a product of SRS Cloud. &copy; <span id="year">2026</span> SRS Cloud. All rights reserved.</p>
+      <p><a href="mailto:hello@srscloud.co.uk">hello@srscloud.co.uk</a></p>
+    </div>
+  </footer>
+
+  <script src="/main.js?v=6" defer></script>
+  <script src="/status.js?v=6" defer></script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c57ef184f38848dc8d51d6b9651f171e"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -384,3 +384,40 @@ img { max-width: 100%; display: block; }
 .section-dark .eyebrow { color: var(--cyan); }
 .section-dark .section-sub { color: rgba(255,255,255,.8); }
 .cdm-cta { text-align: center; margin: 2.5rem 0 0; }
+
+/* ------------------------------ Status page -------------------------------
+   Colours are deliberately separate from the brand palette: teal is the brand,
+   and a status page must not use it for "good", or the page stops reading as a
+   signal. Dots take their colour from the row via currentColor, so a row has
+   exactly one state class. */
+.status-wrap { max-width: 44rem; margin-inline: auto; }
+
+.status-banner { display: flex; align-items: center; gap: .9rem; padding: 1.4rem 1.5rem; border-radius: var(--radius); border: 2px solid; font-size: 1.15rem; font-weight: 700; }
+.status-banner .status-dot { width: 14px; height: 14px; }
+.status-banner.is-ok { color: #0E6B46; background: #E8F6F0; border-color: #0E6B4633; }
+.status-banner.is-warn { color: #8A5200; background: #FDF4E6; border-color: #8A520033; }
+.status-banner.is-down { color: #A32A26; background: #FBECEB; border-color: #A32A2633; }
+.status-banner.is-unknown,
+.status-banner.is-checking { color: var(--slate); background: var(--grey); border-color: rgba(16,36,61,.12); }
+
+.status-list { list-style: none; padding: 0; margin: 1.25rem 0 0; border: 1px solid rgba(16,36,61,.1); border-radius: var(--radius); overflow: hidden; }
+.status-row { display: flex; align-items: center; gap: .85rem; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(16,36,61,.08); background: #fff; }
+.status-row:last-child { border-bottom: 0; }
+.status-name { font-weight: 650; color: var(--ink); }
+.status-state { margin-inline-start: auto; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+
+.status-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; background: currentColor; }
+.status-row.is-operational { color: #0E6B46; }
+.status-row.is-degraded { color: #8A5200; }
+.status-row.is-down { color: #A32A26; }
+.status-row.is-unknown { color: var(--slate); }
+
+.status-checked { margin: 1rem 0 0; font-size: .9rem; color: var(--slate); }
+.status-note { margin: 1.5rem 0 0; font-size: .92rem; color: var(--slate); }
+.status-demo { margin: 0 0 1rem; padding: .7rem 1rem; border-radius: var(--radius-sm); background: #FDF4E6; color: #8A5200; font-size: .9rem; font-weight: 650; }
+
+@media (max-width: 520px) {
+  .status-banner { font-size: 1rem; padding: 1.1rem 1.1rem; }
+  .status-row { flex-wrap: wrap; }
+  .status-state { margin-inline-start: 0; width: 100%; padding-inline-start: 1.85rem; }
+}
