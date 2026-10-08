@@ -19,6 +19,9 @@ ar/index.html   Arabic (RTL) landing page for the Gulf market. Deliberately not
                 a mirror of the English site — see "The Arabic page" below.
 styles.css      All styles. Palette matches the app's neutral iSite theme.
 main.js         Mobile nav, footer year, scroll-reveal. No dependencies.
+status.html     System status. Reads a live health endpoint from the app;
+                see "The status page" below.
+status.js       Fetches and renders that status. Used by status.html only.
 404.html        Branded not-found page.
 
 favicon.ico     Multi-size tab icon (16/32/48). At the root on purpose, so a
@@ -28,9 +31,13 @@ assets/
   apple-touch-icon.png  180x180 iOS home-screen icon.
   og-image.png          1200x630 social card. PNG because no social platform
                         renders an SVG og:image.
+  brand/                Microsoft 365 profile picture and desktop wallpapers.
+                        Not used by the site; these are handed to people.
 tools/
   generate-assets.mjs   Regenerates the three raster assets from the logo
                         shapes. Optional, not part of any build.
+  generate-brand-assets.mjs
+                        Same, for assets/brand/.
 
 _headers        Cloudflare Pages security response headers. Currently inert —
                 see "Hosting" below.
@@ -235,6 +242,22 @@ node tools/generate-assets.mjs
 Then commit `favicon.ico`, `assets/apple-touch-icon.png` and
 `assets/og-image.png`. `node_modules/` is gitignored; the site itself still has
 no build step and deploys as-is.
+
+The brand images in `assets/brand/` have their own generator, drawn from the
+same logo shapes so they cannot drift from the site:
+
+```bash
+node tools/generate-brand-assets.mjs
+PREVIEW=1 node tools/generate-brand-assets.mjs   # adds the circular-crop check
+```
+
+Microsoft 365 masks the profile picture to a circle almost everywhere it
+appears, so after changing the mark or its scale, run the PREVIEW variant and
+look at `preview-profile-circle.png` before committing. That preview file is a
+check, not a deliverable, so do not commit it.
+
+Neither generator is used by the website. Both exist so the images can never
+quietly diverge from `assets/logo.svg`.
 
 The small favicon sizes use simplified marks rather than the full logo — three
 nested levels (tile > pin > disc > "i") turn to mud below about 48px, so 16px
