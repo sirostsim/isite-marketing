@@ -180,6 +180,21 @@ img { max-width: 100%; display: block; }
 .who-card { background: #fff; border: 1px solid rgba(16,36,61,.08); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); border-top: 4px solid var(--teal); }
 .who-card h3 { font-size: 1.05rem; }
 .who-card p { color: var(--slate); font-size: .94rem; margin: 0; }
+.who-more { text-align: center; font-size: 1.35rem; margin: 3.5rem 0 1.5rem; }
+.who-link { display: flex; flex-direction: column; color: inherit; transition: transform .2s ease, box-shadow .2s ease; }
+.who-link:hover { text-decoration: none; transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.who-link p { flex: 1; }
+.who-more-link { margin-top: .9rem; font-size: .9rem; font-weight: 650; color: var(--teal-deep); }
+.who-more-link::after { content: " \2192"; }
+[dir="rtl"] .who-more-link::after { content: " \2190"; }
+
+/* Industry pages: a second line under a name in the hero panel */
+.panel-item .panel-who { display: flex; flex-direction: column; line-height: 1.25; }
+.panel-item .panel-who small { color: rgba(255,255,255,.55); font-size: .76rem; }
+.industry-note { max-width: 46rem; margin: 2.5rem auto 0; text-align: center; font-size: .92rem; color: var(--slate); }
+/* Industry pages: the photo under the hero, pulled up to overlap it */
+.photo-band { position: relative; margin-top: -56px; padding-bottom: 64px; }
+.photo-band-img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
 
 /* CTA */
 .cta { background: linear-gradient(160deg, var(--navy-3), var(--navy) 60%, var(--navy-2)); color: #fff; text-align: center; }

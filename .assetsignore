@@ -1,0 +1,13 @@
+# Files in the repo that are not part of the website. Wrangler uploads the
+# whole repo root as static assets (wrangler.jsonc), so anything not listed
+# here becomes publicly downloadable on the workers.dev copy.
+.git
+.github
+.wrangler
+.claude
+node_modules
+.gitignore
+.assetsignore
+wrangler.jsonc
+README.md
+tools

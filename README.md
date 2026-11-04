@@ -11,8 +11,12 @@ before changing anything that depends on response headers.
 ## Structure
 
 ```
-index.html      One-page landing (hero, what it is, features, how it works,
-                who it's for, contact)
+index.html      One-page landing (hero, what it is, features, tasks & snagging,
+                CDM, roving teams, how it works, who it's for, contact)
+subcontractors.html, cleaning.html, care.html, security.html
+                Industry pages for the roving-teams market. Linked from the
+                "Beyond the building site" cards and the footer. See
+                "The industry pages" below.
 pricing.html    Plans and prices. Linked from the main nav.
 privacy.html    Privacy policy. Has placeholders — see below.
 ar/index.html   Arabic (RTL) landing page for the Gulf market. Deliberately not
@@ -31,6 +35,7 @@ assets/
   apple-touch-icon.png  180x180 iOS home-screen icon.
   og-image.png          1200x630 social card. PNG because no social platform
                         renders an SVG og:image.
+  industries/           One photo per industry page (AI-generated).
   brand/                Microsoft 365 profile picture and desktop wallpapers.
                         Not used by the site; these are handed to people.
 tools/
@@ -111,11 +116,11 @@ application.
 - Copy is written to match what the application actually does — keep it honest;
   don't add features here that aren't in the product.
 - **After editing `styles.css` or `main.js`, bump the `?v=` number on their
-  `<link>`/`<script>` tags in all four HTML files.** The host serves both with
+  `<link>`/`<script>` tags in every HTML file.** The host serves both with
   `Cache-Control: max-age=600` and neither filename ever changes, so without a
   bump returning visitors get up to ten minutes of new HTML against old CSS —
   which on the pricing page renders as a completely unstyled mess, not as a
-  minor visual glitch. Currently at `v=6`. One-liner to check they all match:
+  minor visual glitch. Currently at `v=7`. One-liner to check they all match:
 
   ```bash
   grep -h -o 'styles.css?v=[0-9]*|main.js?v=[0-9]*' *.html | sort -u
@@ -123,6 +128,68 @@ application.
 - The contact address is `hello@srscloud.co.uk`, and appears in the CTA and
   footer of `index.html`, `pricing.html` and `privacy.html`. `_headers` allows
   `mailto:` form actions. Grep for it if the address changes.
+
+## The industry pages
+
+`subcontractors.html`, `cleaning.html`, `care.html` and `security.html` sell
+the roving teams and Field Ops features outside main-contractor construction.
+The homepage stays construction-led; these pages carry the other markets.
+
+- **They are separate documents with a shared shell.** Header, footer and
+  section structure match `cleaning.html`; the copy is written for each
+  market. Changing the header or footer means changing all of them.
+- **Roving teams have no induction gate.** In the app, a roving team is a
+  team, not a place: the organisation's own staff sign on by scanning the
+  team's QR on their own phone, with no induction or approval step. Location
+  is captured at sign-on and sign-off only. Do not claim inductions, card
+  checks or continuous tracking for roving work. Inductions, geofences and
+  gate kiosks belong to *fixed* sites, which is why the security and cleaning
+  pages offer fixed sites for static posts and big contracts.
+- **Field Ops features carry a "Field Ops" pill** (clients and jobs, week
+  planner, sign on to a job, timesheets). Field Ops KPIs are not built yet;
+  leave them off until they are.
+- **Care makes no regulatory claims.** No CQC, care-records, medication or
+  electronic visit verification claims. The page says plainly that iSite
+  records workforce attendance and is not a care system. Keep it that way.
+- **Security makes no SIA claims.** The app has no SIA licence card type;
+  accreditation records are construction cards plus a free-text "other".
+
+### Photography
+
+Each page has one photo, in `assets/industries/<page>.webp`, shown in a
+`.photo-band` between the hero and `#features`. The band sits inside the
+content width and is pulled up to overlap the hero, so a photo about 1,200px
+wide is enough; a wider source looks no sharper there.
+
+The four photos are **AI-generated** (Microsoft Copilot), from the briefs
+below, and the workers wear iSite-branded clothing by choice. They are
+illustrations, not customers: do not caption them as a real company, site or
+person. AI images cannot be copyrighted, so anyone may reuse them.
+
+Rules for a replacement image:
+
+- UK setting, natural light, candid documentary style, a cool navy and teal
+  grade to sit with the palette.
+- No third-party logos or readable text, and never a fake app screen. If a
+  phone is in shot, its screen faces away.
+- Care: show the carer, never an identifiable person being cared for.
+- If an image is AI-generated, check hands, hi-vis lettering and PPE for the
+  usual errors before using it.
+- Update the `width`, `height` and `alt` on the `<img>` to match.
+
+Briefs, one per page:
+
+- **Subcontractors:** two operatives in hi-vis and hard hats beside a van on
+  a new-build housing estate, one scanning a QR sticker inside the van door
+  with a phone. Overcast daylight.
+- **Cleaning:** a cleaner in a navy tunic in a modern office lobby before
+  opening, a cleaning trolley beside them, scanning a QR code by the staff
+  entrance. Early morning light through glass.
+- **Care:** a carer in uniform at the front door of a terraced house on a
+  UK street, checking their phone before knocking. Soft autumn light.
+- **Security:** an officer in a dark jacket at the gatehouse of an
+  industrial depot at dusk, scanning a QR poster with a phone, floodlights
+  coming on.
 
 ## The CDM module section
 

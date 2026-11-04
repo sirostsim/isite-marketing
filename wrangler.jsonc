@@ -1,0 +1,20 @@
+// Cloudflare Workers Builds config for the copy of this site at
+// isite-marketing.simon-670.workers.dev. The live domain is served by GitHub
+// Pages (see README "Hosting"); this Worker only serves static assets.
+//
+// These are the settings Wrangler used to auto-detect on every production
+// deploy. Writing them down lets non-production branches build too:
+// `wrangler versions upload` does not auto-detect, and failed without this.
+// .assetsignore keeps the repo's own files (.git, README, tools) out of the
+// upload.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "isite-marketing",
+  "compatibility_date": "2026-10-06",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "."
+  }
+}
