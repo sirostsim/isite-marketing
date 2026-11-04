@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>iSite | Site access, induction &amp; attendance for construction</title>
-  <meta name="description" content="iSite controls construction site access, runs H&amp;S inductions, and gives you a live, honest picture of who is on site and for how long, on tablets at the gate, on workers' phones, and in the back office." />
+  <title>iSite | Site access, induction &amp; attendance for construction and mobile teams</title>
+  <meta name="description" content="iSite controls construction site access, runs H&amp;S inductions, and gives you a live, honest picture of who is on site and for how long, on tablets at the gate, on workers' phones, and in the back office. Now with roving teams, job planning and timesheets for mobile workforces." />
   <meta name="theme-color" content="#10243D" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="iSite. Every worker inducted. Every sign-in accounted for." />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="stylesheet" href="/styles.css?v=6" />
+  <link rel="stylesheet" href="/styles.css?v=7" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,8 +43,8 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#what">What it is</a>
         <a href="#features">Features</a>
+        <a href="#roving">Roving teams</a>
         <a href="#how">How it works</a>
         <a href="#who">Who it's for</a>
         <a href="/pricing.html">Pricing</a>
@@ -63,8 +63,8 @@
     </div>
 
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <a href="#what">What it is</a>
       <a href="#features">Features</a>
+      <a href="#roving">Roving teams</a>
       <a href="#how">How it works</a>
       <a href="#who">Who it's for</a>
       <a href="/pricing.html">Pricing</a>
@@ -80,18 +80,20 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Site access · induction · attendance</p>
+          <p class="eyebrow">Site access · induction · attendance · mobile teams</p>
           <h1>Every worker inducted.<br />Every sign-in accounted for.</h1>
           <p class="lead">
             iSite&trade; controls who gets on your site, runs their health &amp; safety induction,
             and gives you a live, honest picture of who is on site and for how long:
             on a tablet at the gate, on workers' own phones, and in the back office.
+            And for teams that move from job to job, it shows where everyone is and
+            turns their sign-ins into timesheets.
           </p>
           <div class="hero-cta">
             <a class="btn btn-primary btn-lg" href="#contact">Book a demo</a>
             <a class="btn btn-outline btn-lg" href="#how">See how it works</a>
           </div>
-          <p class="hero-note">Built for UK construction, with UK dates, cards and terminology.</p>
+          <p class="hero-note">Built for UK construction, and for any business with people out on the road.</p>
         </div>
 
         <div class="hero-panel reveal" aria-hidden="true">
@@ -220,6 +222,46 @@
       </div>
     </section>
 
+    <!-- ===================== Tasks & snagging ===================== -->
+    <section class="section" id="tasks">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Tasks &amp; snagging</p>
+          <h2>Say what needs doing. Track it until it's done.</h2>
+          <p class="section-sub">
+            Jobs on site and defects found on inspection, raised on the spot from a phone,
+            with photo evidence at both ends.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v4M8 22h8"/></svg>
+            </div>
+            <h3>Speak a task <span class="pill">AI</span></h3>
+            <p>Tap the mic and say it as you would on site: <em>"plot 5, mess in the kitchen, get Darren from DK Kitchens to tidy it."</em> AI writes it up as a clear task with its location, and matches the person and company to the people actually on your site. It never invents a name, and you check every task before it's assigned.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <h3>Tasks tracked to done</h3>
+            <p>Assign work to operatives, who start it and mark it done from their own phone with a completion photo. Photos can be marked up without losing the original, and are geotagged and compressed on the device.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11l2 2 4-4"/></svg>
+            </div>
+            <h3>Snagging, inspected to close</h3>
+            <p>Walk a plot and raise snags room by room, each with a marked-up photo. The trade fixes it and adds an after photo, but only the inspector can close it, and anything not right goes back reopened. Every step is kept in the snag's history.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CDM module ===================== -->
     <section class="section section-dark" id="cdm">
       <div class="container">
@@ -260,6 +302,72 @@
         </div>
 
         <p class="cdm-cta reveal"><a class="btn btn-primary btn-lg" href="#contact">Ask about the CDM module</a></p>
+      </div>
+    </section>
+
+    <!-- ===================== Roving teams ===================== -->
+    <section class="section section-alt" id="roving">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Roving teams &amp; Field Ops</p>
+          <h2>For the people who are never on one site</h2>
+          <p class="section-sub">
+            Maintenance crews, specialist subcontractors, cleaners, carers and security
+            officers work across many addresses in a day. A roving team in iSite&trade; is a
+            team, not a place: each person signs on wherever the work is, and you still get
+            an honest record of where they were and for how long.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <h3>Where everyone is now</h3>
+            <p>A live map with a pin for each person out on a job, and a register of every roving sign-in with its location and the weather where it happened.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M7 14h4"/></svg>
+            </div>
+            <h3>Week planner <span class="pill">Field Ops</span></h3>
+            <p>Keep your clients and a backlog of jobs, then drag each job onto a crew and a day. The board shows your crews, what's scheduled, the planned hours and what is still waiting.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11l2 2 4-4M10 18h4"/></svg>
+            </div>
+            <h3>Sign on to the job <span class="pill">Field Ops</span></h3>
+            <p>When a crew member signs on, they pick from today's jobs for their team, or log an ad-hoc one. Their time lands against that job, and the job moves to in progress.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3>Timesheets from sign-ins <span class="pill">Field Ops</span></h3>
+            <p>Each person's week is built from their own sign-ins: hours, days, and every job and client they worked on. A manager approves the week, and it exports to CSV.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg>
+            </div>
+            <h3>A QR in the van, not a gate</h3>
+            <p>Your own staff sign on by scanning the team's QR code on their phone. Only people in your organisation can use it, a suspension still blocks a sign-on, and location is captured at sign-on and sign-off only, never tracked in between.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.85"/></svg>
+            </div>
+            <h3>Alongside your fixed sites</h3>
+            <p>Roving teams sit in the same account as your building sites, so one organisation can run both. Each operative can see their own roving history: where they signed in and for how long.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -314,6 +422,14 @@
           <div class="who-card reveal"><h3>Operatives &amp; subcontractors</h3><p>One account across the platform, a fast induction, and a sign-in that takes seconds at the gate.</p></div>
           <div class="who-card reveal"><h3>Commercial &amp; QS teams</h3><p>Read-only hours and attendance to value work, with no approvals, site settings or health data.</p></div>
         </div>
+
+        <h3 class="who-more reveal">Beyond the building site</h3>
+        <div class="grid grid-4">
+          <a class="who-card who-link reveal" href="/subcontractors.html"><h3>Tier 2 &amp; specialist subcontractors</h3><p>Crews moving between clients' sites, planned by the week and paid from timesheets built on real sign-ins.</p><span class="who-more-link">For subcontractors</span></a>
+          <a class="who-card who-link reveal" href="/cleaning.html"><h3>Contract cleaning</h3><p>See which cleaners are at which client's premises, and turn their visits into approved weekly hours.</p><span class="who-more-link">For cleaning</span></a>
+          <a class="who-card who-link reveal" href="/care.html"><h3>Domiciliary &amp; social care</h3><p>Carers sign on at each visit with their location captured, so the office can see who is out and where.</p><span class="who-more-link">For care</span></a>
+          <a class="who-card who-link reveal" href="/security.html"><h3>Security services</h3><p>Officers sign on at each site they cover, with a live map for the office and hours ready for payroll.</p><span class="who-more-link">For security</span></a>
+        </div>
       </div>
     </section>
 
@@ -339,13 +455,19 @@
           <img class="brand-mark" src="/assets/logo.svg" width="32" height="32" alt="" />
           <span class="brand-word">iSite&trade;</span>
         </a>
-        <p>Site access, induction &amp; attendance for construction.</p>
+        <p>Site access, induction &amp; attendance for construction and mobile teams.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="#what">What it is</a>
         <a href="#features">Features</a>
+        <a href="#tasks">Tasks &amp; snagging</a>
+        <a href="#roving">Roving teams</a>
         <a href="#how">How it works</a>
         <a href="#who">Who it's for</a>
+        <a href="/subcontractors.html">Subcontractors</a>
+        <a href="/cleaning.html">Cleaning</a>
+        <a href="/care.html">Care</a>
+        <a href="/security.html">Security</a>
         <a href="/pricing.html">Pricing</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/status.html">Status</a>
@@ -359,7 +481,7 @@
     </div>
   </footer>
 
-  <script src="/main.js?v=6" defer></script>
+  <script src="/main.js?v=7" defer></script>
 
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c57ef184f38848dc8d51d6b9651f171e"}'></script>
