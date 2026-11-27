@@ -1,3 +1,9 @@
+> **Redirected to Tocyn (27 Nov 2026).** iSite is now Tocyn. Every page here is a
+> stub that sends visitors to the same page on https://tocyn.uk (canonical +
+> instant refresh + location.replace keeping the query string; 404.html keeps
+> the path). The live site is the `tocyn-uk` repo. To restore this site, revert
+> the commit that added the stubs.
+
 # iSite — marketing site
 
 The public marketing / intro site for **iSite**, the construction site access,
